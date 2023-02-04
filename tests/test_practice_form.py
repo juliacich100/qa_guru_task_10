@@ -1,13 +1,13 @@
-from selene.support.shared import browser
 from selene import have, be
 import os
 import tests
 import allure
 
 
-def test_student_registration_form():
+def test_student_registration_form(setup_chrome):
+    browser = setup_chrome
     with allure.step("Open practice form page"):
-        browser.open('/automation-practice-form')
+        browser.open('https://demoqa.com/automation-practice-form')
 
     with allure.step('Complete practice form'):
         browser.element('#firstName').should(be.blank).type('Julia')
